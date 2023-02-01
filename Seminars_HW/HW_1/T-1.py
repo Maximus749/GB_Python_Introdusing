@@ -62,6 +62,6 @@ y1 = int(input("Введите координату y1: "))
 x2 = int(input("Введите координату х2: "))
 y2 = int(input("Введите координату y2: "))
 
-distance = math.sqrt((x2 - x1) + (y2 - y1))
+distance = (((x2 - x1) ** 2) + ((y2 - y1) ** 2)) ** 0.5
 
 print(round(distance, 2))
