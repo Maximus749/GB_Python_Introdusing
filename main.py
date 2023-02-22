@@ -4,7 +4,7 @@ def create_list(n):
 
         if n > len(coll):
             continue
-            return (f"Добавьте еще {n - len(coll)} элементов")
+            # return (f"Добавьте еще {n - len(coll)} элементов")
         elif n < len(coll):
             coll = (coll[:n])
         break
