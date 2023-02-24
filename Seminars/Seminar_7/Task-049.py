@@ -18,10 +18,19 @@
 # Вывод:
 # 2.5 10
 
-orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]
-# my_square = list(map(lambda x, y: x * y * 3.14, orbits))
+orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]                          # МОЕ РЕЩЕНИЕ
+# print(orbits)
+filtered_orbits = list(filter(lambda x: x[0] != x[1], orbits))                # 3
+# print(orbits)
+my_square = list(map(lambda x: x[0] * x[1] * 3.14, filtered_orbits))
+# print(my_square)
+maximum = max(list(map(lambda x: x[0] * x[1] * 3.14, filtered_orbits)))
+# print(maximum)
+max_orbit = list(filter(lambda x: x[0] * x[1] * 3.14 == maximum, filtered_orbits))
+print(max_orbit)
+#------------------------------------------------------------------------------
 # S = pi*a*b,
-# def find_farthest_orbit(list):
+# def find_farthest_orbit(list):                                                # 1
 #     my_square = []
 #     max = 0
 #     for i in range(len(orbits)):
@@ -37,7 +46,8 @@ orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]
 #             if key == max:
 #                 return i[key]
     # return my_square
-# def find_farthest_orbit(list):
+#------------------------------------------------------------------------------
+# def find_farthest_orbit(list):                                                # 2
 #     my_square = []
 #     max = 0
 #     for i in orbits:
@@ -54,17 +64,29 @@ orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]
 #             if key == max:
 #                 return i[key]
 # print(find_farthest_orbit(orbits))
-
+#==============================================================================
                                                                                 # From Алексей Замараев
-from math import pi
-orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]
-
-# orbits = [i for i in orbits if i[0] != i[1]]
-# max_square = max([pi * i[0] * i[1] for i in orbits])
-# max_square_a_b = [i for i in orbits if pi * i[0] * i[1] == max_square]
-# print(max_square_a_b)
-
+# from math import pi
+# orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]
+#
+# # orbits = [i for i in orbits if i[0] != i[1]]                                  # 1
+# # max_square = max([pi * i[0] * i[1] for i in orbits])
+# # max_square_a_b = [i for i in orbits if pi * i[0] * i[1] == max_square]
+#
+# orbits = list(filter(lambda i: i[0] != i[1], orbits))                           # 2
+# max_square = max(list(map(lambda x: pi * x[0] * x[1], orbits)))
+# max_square_a_b = list(filter(lambda y: pi * y[0] * y[1] == max_square, orbits))
+# print(*max_square_a_b)
+#==============================================================================
                                                                                 # from Rostislav:
-maximum = max(list(map(lambda x:pi*x[0]*x[1] ,(filter(lambda i: i[0]!=i[1], orbits)))))
-far = filter(lambda y:pi*y[0]*y[1] == maximum, orbits)
-print(*list(far))
+# maximum = max(list(map(lambda x:pi*x[0]*x[1] ,(filter(lambda i: i[0]!=i[1], orbits)))))
+# far = filter(lambda y:pi*y[0]*y[1] == maximum, orbits)
+# print(*list(far))
+#==============================================================================
+                                                                                #from Георгий:
+# from functools import reduce
+# orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]
+# #elliptic_orbits = [orbit for orbit in orbits if orbit[0] != orbit[1]]
+# elliptic_orbits = list(filter(lambda x: x[0] != x[1], orbits))
+# print(elliptic_orbits)
+# print(reduce(lambda x, y: x if x[0] * x[1] > y[0] * y[1] else y, elliptic_orbits))
