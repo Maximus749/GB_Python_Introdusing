@@ -18,8 +18,8 @@
 # Вывод:
 # 2.5 10
 
-orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]                          # МОЕ РЕЩЕНИЕ
-# print(orbits)
+orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]                          # МОЕ РЕШЕНИЕ
+print(orbits)
 filtered_orbits = list(filter(lambda x: x[0] != x[1], orbits))                # 3
 # print(orbits)
 my_square = list(map(lambda x: x[0] * x[1] * 3.14, filtered_orbits))
@@ -27,7 +27,7 @@ my_square = list(map(lambda x: x[0] * x[1] * 3.14, filtered_orbits))
 maximum = max(list(map(lambda x: x[0] * x[1] * 3.14, filtered_orbits)))
 # print(maximum)
 max_orbit = list(filter(lambda x: x[0] * x[1] * 3.14 == maximum, filtered_orbits))
-print(max_orbit)
+print(maximum, *max_orbit)
 #------------------------------------------------------------------------------
 # S = pi*a*b,
 # def find_farthest_orbit(list):                                                # 1

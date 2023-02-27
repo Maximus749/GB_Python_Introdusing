@@ -15,17 +15,25 @@
 #                                                 6 12 18 24 30 36
 
 
+# def print_operation_table(operation, num_rows=6, num_columns=6):
+#     table = list(
+#         map(lambda i: [operation(i, j)
+#                        if j != 1 and i != 1 else i
+#                        if j == 1 else j
+#                        for j in range(1, num_columns + 1)], range(1, num_rows + 1)))
+#     for i in table:
+#         for j in i:
+#             print(f'{j:<5}', end='')
+#         print()
+#
+# rows, columns = [int(x) for x in input('Введите кол-во колонок и столбцов через пробел: ').split()[:2]]
+#
+# print_operation_table(lambda x, y: x * y, rows, columns)
+
+                                                                                # from Евгений:
 def print_operation_table(operation, num_rows=6, num_columns=6):
-    table = list(
-        map(lambda i: [operation(i, j)
-                       if j != 1 and i != 1 else i
-                       if j == 1 else j
-                       for j in range(1, num_columns + 1)], range(1, num_rows + 1)))
-    for i in table:
-        for j in i:
-            print(f'{j:<5}', end='')
+    for i in range(1, num_rows + 1):
+        for j in range(1, num_columns + 1):
+            print(str(operation(i, j)).rjust(4), end =' ')
         print()
-
-rows, columns = [int(x) for x in input('Введите кол-во колонок и столбцов через пробел: ').split()[:2]]
-
-print_operation_table(lambda x, y: x * y, rows, columns)
+print(print_operation_table(lambda x, y: x*y, 4, 3))
